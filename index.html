@@ -1,0 +1,365 @@
+<!DOCTYPE html> <html> <head><script>
+    function showPopup(text) {
+      var popupContainer = document.getElementById("popup-container");
+      var popupText = document.getElementById("popup-text");
+      popupText.innerHTML = text;
+      popupContainer.style.display = "block";
+      popupContainer.onclick = function() { 
+        this.style.display = "none";
+      }
+    }
+  </script><style>
+    button.square-btn {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background-color: orange;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    button.square-btn:hover {
+      transform: scale(1.1);
+    }
+    .btn-container {
+      margin-top: 20px;
+    }
+    #popup-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 165, 0, 0.7);
+      z-index: 1;
+      text-align: center;
+    }
+    #popup-text {
+      display: inline-block;
+      margin-top: 200px;
+      padding: 20px;
+      font-size: 32px;
+      font-weight: bold;
+      color: orange;
+      background-color: black;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style> <style>.my-div { border: 4px solid black; border-radius: 10px; padding: 20px; background-image: linear-gradient(to bottom, yellow, orange);font-family: 'Roboto', sans-serif; font-size: 1.2rem;  */ letter-spacing: 0.1em; /* увеличить промежутки между буквами */ text-shadow: 1px 1px #000; /* добавить тень тексту */ }</style><style>.refresh-btn {
+  display: block;
+  margin: 0 auto;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}</style> <style> body { margin: 0; padding: 0; font-family: Arial, sans-serif; } header { background-color: #333; color: #fff; padding: 20px; } main { padding: 20px; } ul { list-style: none; padding: 0; margin: 0; } button { padding: 10px; text-shadow: 1px 1px #000; border: 2px solid black; border-radius: 5px;  background-color: orange; color: white; cursor: pointer; margin-right: 10px; } button:hover { background-color: orange; } .end { background-color: #f44336;border-radius: 10px; color: red; padding: 20px; text-align: center; margin-top: 20px; } </style> <meta charset="UTF-8"> <title>Игра про школу 3</title> <link rel="stylesheet" href="style.css"> </head> 
+<body> <header> <h1>Игра про школу 3</h1> </header> <main> <div class="my-div"><p>Вы пришли в третью школу с опозданием, что будете делать?</p></div> <ul><li><button onclick="showScenario1()">Пойду на урок</button></li> <li><button onclick="showScenario2()">Пойду в столовую</button></li> <li><button onclick="showScenario3()">Буду сидеть на 3 этаже</button></li> </ul> </main><button class="refresh-btn">Играть сново</button><script> function showScenario1() { let scenario1 = ` <div class="my-div"><p>К сожалению первым уроком был Чеч яз, и вас в нос ударила Яха. У вас из носа течет кровь, что будете делать?</p></div> <ul> <li><button onclick="showEnd1()">Уберу кровь тетрадью</button></li> <li><button onclick="showScenario25()">Попрошу салфетку</button></li> <li><button onclick="showEnd2()">Лягу на спину</button></li> </ul> `; document.querySelector('main').innerHTML = scenario1; }
+    function showScenario2() {
+        let scenario2 = `
+           <div class="my-div"> <p>Вы пошли в столовую и остались там на весь урок. Чтобы не умереть со скуки, вы:</p></div>
+            <ul>
+                <li><button onclick="showScenario30()">Буду сидеть в телефоне</button></li>
+                <li><button onclick="showScenario22()">Посплю</button></li>
+                <li><button onclick="showScenario4()">Выйду в коридор</button></li>
+            </ul>
+        `;        document.querySelector('main').innerHTML = scenario2;
+    }
+    function showScenario3() {
+        let scenario3 = `
+            <div class="my-div"><p>Вы решили остатся на 3 этаже. Вы замечаете Рамази, которая стремительно идет на вас. Что будете делать</p></div>
+            <ul>
+                <li><button onclick="showScenario23()">Убегу</button></li>
+                <li><button onclick="showEnd8()">Останусь</button></li>
+                <li><button onclick="showScenario1()">Зайду в кабинет</button></li>
+            </ul>
+        `;       document.querySelector('main').innerHTML = scenario3;
+    }
+    function showScenario4() {
+        let scenario4 = `
+            <div class="my-div"><p>Выйдя в коридор вы замечаете Алхана кидаюшего снюс? </p>  </div> <ul>
+                <li><button onclick="showScenario31()">попросить у него снюс                                   </button></li>
+                <li><button onclick="showScenario30()">проигнорировать </button></li>
+                <li><button onclick="showEnd10()">отоберу у него снюс</button></li>
+            </ul>
+        `;       document.querySelector('main').innerHTML = scenario4;
+    }
+    function showScenario23() {
+        let scenario23 = `
+            <div class="my-div"><p>Вы успели успели убежать и решили подождать пока пройдет урок в столовой. Чтобы не умереть со скуки вы.</p></div><ul>  <li><button onclick="showScenario30()">Буду сидеть в телефоне</button></li>
+                <li><button onclick="showScenario22()">Посплю</button></li>
+                <li><button onclick="showScenario4()">Выйду в коридор</button></li>
+            </ul>
+        `;       document.querySelector('main').innerHTML = scenario23;
+    }
+function showScenario22() {
+        let scenario22 = `
+           <div class="my-div"> <p>Вы засыпаете в столовой и просыпаетесь в темном подвале. Вы замечаете у себя в кармане телефон с 2% зарядки. что будете делать с ним.</p></div><ul>  <li><button onclick="showScenario27()">посмотрю свое местоположение</button></li>
+                <li><button onclick="showScenario28()">осмотрюсь фонариком</button></li>
+                <li><button onclick="showScenario29()">позвоню в 911</button></li>
+            </ul>
+        `;       document.querySelector('main').innerHTML = scenario22;
+    }
+ function showScenario25() {
+        let scenario25 = `
+          <div class="my-div">  <p>Вы остоновили кровь и урок продолжился. Вдруг Яха выходит из кабинета и Салман предлогает вас сыграть в 4 players.</p></div>
+            <ul>
+                <li><button onclick="showScenario26()">соглашусь</button></li>
+                <li><button onclick="showScenario30()">откажусь</button></li> 
+                </ul>            
+        `;
+document.querySelector('main').innerHTML = scenario25;
+    }
+function showScenario26() {
+        let scenario26 = `
+           <div class="my-div"> <p>Вы начинаете играть как вдруг заходит Яха и отбирает телефон.Теперь вы любой ценой должны достать телефон Салмана.</p></div>
+            <ul>
+                <li><button onclick="showEnd5()">не буду достовать телефон Салмана</button></li>
+                <li><button onclick="showEnd7()">обыскать шкафчики после урока</button></li> 
+                 <li><button onclick="showEnd6()">отобрать телефон с силой</button></li> 
+                </ul>            
+        `;
+document.querySelector('main').innerHTML = scenario26;
+    }
+function showScenario27() {
+        let scenario27 = `
+         <div class="my-div"> <p>Карта показывает что вы находитесь в 3 школе и в этот момент выключается телефон</p></div>
+            <ul>
+                <li><button onclick="showScenario33()">пытаться найти дверь на ощупь</button></li>
+                <li><button onclick="showEnd4()">съесть телефон</button></li> 
+                </ul>            
+        `;
+document.querySelector('main').innerHTML = scenario27;
+    }
+function showScenario32() {
+        let scenario32 = `
+          <div class="my-div">  <p>Вы говорите девушке что у нее красивый голос, но ее парень был рядом с ней. Он бьет девушку и начинает орать на вас, в этот момент у вас выключается телефон</p></div>
+            <ul>
+                <li><button onclick="showScenario33()">пытаться найти дверь на ощупь</button></li>
+                <li><button onclick="showEnd4()">съесть телефон</button></li> 
+                </ul>            
+        `;
+document.querySelector('main').innerHTML = scenario32;
+    }
+function showScenario28() {
+        let scenario28 = `
+            <div class="my-div"><p>Вы с помощью фонарика находите лом и две двери. Одна деревянная ,другая железная. В которую вы зайдете .</p></div>
+            <ul>
+                <li><button onclick="showScenario33()">в деревянную</button></li>
+                <li><button onclick="showEnd17()">в железную</button></li>                 
+                </ul>            
+        `;
+document.querySelector('main').innerHTML = scenario28;
+    }
+function showScenario29() {
+        let scenario29 = `
+            <div class="my-div"><p>Вы позвонили в 911,вам ответила девушка, она сказала остоваться на связи и что помощь уже выехала.</p></div>
+            <ul>
+                <li><button onclick="showEnd11()">сказать что у меня остался 1% зарядки</button></li>
+                <li><button onclick="showScenario32()">сказать что у нее милый голос</button></li> 
+                 <li><button onclick="showEnd9()">оскорбить президента</button></li> 
+                </ul>            
+        `;
+document.querySelector('main').innerHTML = scenario29;
+    }
+function showScenario30() {
+        let scenario30 = `
+           <div class="my-div"> <p>Время прошло незаметно и вы пошли на следущий урок. Все было хорошо, как вдруг в класс ворвался 1усман и выстрелил из дробавика в Раису. Что будете делать? </p></div>
+            <ul>
+                <li><button onclick="showScenario35()">спрячусь под трупами</button></li>
+                <li><button onclick="showEnd12()">выпрыгну через окно</button></li> 
+                 <li><button onclick="showEnd13()">попытаюсь остоновить 1усмана</button></li> 
+                </ul>            
+        `;
+document.querySelector('main').innerHTML = scenario30;
+    }
+function showScenario31() {
+        let scenario31 = `
+            <div class="my-div"><p>Алхан дал снюс и вы пошли на следущий урок. Все было хорошо, как вдруг в класс ворвался 1усман и выстрелил из дробавика в Раису. Что будете делать? </p></div>
+            <ul>
+                <li><button onclick="showScenario35()">спрячусь под трупами</button></li>
+                <li><button onclick="showEnd12()">выпрыгну через окно</button></li> 
+                 <li><button onclick="showEnd13()">попытаюсь остоновить 1усмана</button></li> <li><button onclick="showEnd15()">дать 1усмана снюс</button></li> 
+                </ul>            
+        `;
+document.querySelector('main').innerHTML = scenario31;
+    }   
+   function showScenario33() {
+        let scenario33 = `
+           <div class="my-div"> <p>вы заходите в деревянную дверь и видете перед собо гору трупов и 1усмана разговаривающего по телефону. что будете делать</p></div>
+            <ul>
+                <li><button onclick="showEnd14()">нападу на 1усмана</button></li>
+                <li><button onclick="showEnd16()">попрошу не убивать</button></li> 
+                 <li><button onclick="showEnd14()">незаметно выйду</button></li>
+                </ul>            
+        `;
+document.querySelector('main').innerHTML = scenario33;
+    }
+  function showScenario35() {
+        let scenario35 = `
+           <div class="my-div"> <p>вы спрятались под трупами и вскоре вы теряеете сознание. вы просыпаетесь в темном подвале и обнаруживаете в кармане телефон с 2% зарядки. что будете делать</p></div>
+          <ul>  <li><button onclick="showScenario27()">посмотрю свое местоположение</button></li>
+                <li><button onclick="showScenario28()">осмотрюсь фонариком</button></li>
+                <li><button onclick="showScenario29()">позвоню в 911</button></li>
+            </ul>  
+        `;
+document.querySelector('main').innerHTML = scenario35;
+    }
+    function showEnd1() {
+        let end1 = `
+            <div class="my-div"> 
+             <h3>#1</h3>   <p>Вы убрали кровь тетрадью, но эта тетрадь была чеч яз. Яха не стерпев унижения ударила вас в челюсть. Вскоре вы умерли в больнице.</p> 
+            </div> 
+        `;         document.querySelector('main').innerHTML = end1; 
+    }
+    function showEnd2() {
+        let end2 = `
+            <div class="my-div">
+            <h3>#2</h3>     <p>Вы легли на спину чтобы остановить кровь, но вы не успели сказать слово как Яха ударила вас в челюсть, подумав что вы спите на ее уроке. Вскоре вы умерли в больнице. </p>
+            </div>
+        `;       document.querySelector('main').innerHTML = end2;
+    }
+    function showEnd3() {
+        let end3 = `
+            <div class="my-div">
+                <p>Вы .</p>
+            </div>
+        `;       document.querySelector('main').innerHTML = end3;
+    }
+    function showEnd4() {
+        let end4 = `
+            <div class="my-div">
+             <h3>#11</h3>    <p>Вы умерли из-за того съели свой телефон.</p>
+            </div>
+        `;       document.querySelector('main').innerHTML = end4;
+    }
+     function showEnd5() {
+        let end5 = `
+            <div class="my-div">
+        <h3>#3</h3>        <p>Вы умерли от стыда💔.</p>
+            </div>
+        `;       document.querySelector('main').innerHTML = end5;
+    }
+     function showEnd6() {
+        let end6 = `
+            <div class="my-div">
+            <h3>#5</h3>    <p>К сожалению Яха окозалась сильнее и нокаутировала вас. Вскоре вы умерли в больнице</p>
+            </div>
+        `;       document.querySelector('main').innerHTML = end6;
+    }  
+    function showEnd7() {
+        let end7 = `
+            <div class="my-div">
+           <h3>#4</h3>     <p>Вы не заметили как сзади вас появиласл Яха и как быстро она ударила вас в челюсть. Вскоре вы умерли в больнице</p>
+            </div>
+        `;        document.querySelector('main').innerHTML = end7;
+    }    
+    function showEnd8() {
+        let end8 = `
+            <div class="my-div">
+         <h3>#6</h3>       <p>Рамази ударила вас в челюсть. Вскоре вы умерли в больнице</p>
+            </div>
+        `;       document.querySelector('main').innerHTML = end8;
+    }    
+    function showEnd9() {
+        let end9 = `
+            <div class="my-div">
+            <h3>#12</h3>    <p>спустя 3 минуты в подвал ворвался ОМОН и вас отправили в изолятор. вскоре вы умерли в изоляторе</p>
+            </div>
+        `;        document.querySelector('main').innerHTML = end9;
+    }     
+    function showEnd10() {
+        let end10 = `
+            <div class="my-div">
+             <h3>#7</h3>   <p>Вы отобрали у Алхана снюс пока он был под кайфом, но спустя минуту вы заметили как на вас бежит Алхан со скоростью звука. Он ударил вас в челюсть и вскоре вы умерли в больнице. </p>
+            </div>
+        `;       document.querySelector('main').innerHTML = end10;
+    }    
+      function showEnd11() {
+        let end11 = `
+            <div class="my-div">
+          <h3>#13</h3>      <p>вас нашли хепи энд </p>
+            </div>
+        `;        document.querySelector('main').innerHTML = end11;
+    }   
+    function showEnd12() {
+        let end12 = `
+            <div class="my-div">
+            <h3>#9</h3>    <p>к сожалению у 1усмана с собой, была снайперская винтовка и он выстрелил в вас,когда вы презимлились. вы умерли. </p>
+            </div>
+        `;       document.querySelector('main').innerHTML = end12;
+    } 
+    function showEnd13() {
+        let end13 = `
+            <div class="my-div">
+         <h3>#8</h3>       <p>вы попытались его остановить, но он выстрели в вас из дробавика. вы умерли. </p>
+            </div>
+        `;     document.querySelector('main').innerHTML = end13;
+    }   
+     function showEnd14() {
+        let end14 = `
+            <div class="my-div">
+               <h3>#8</h3> <p>1усман заметил вас и выстрели в вас из дробавика. вы умерли. </p>
+            </div>
+        `;   document.querySelector('main').innerHTML = end14;
+    }    
+     function showEnd15() {
+        let end15 = `
+            <div class="my-div">
+             <h3>#10</h3>   <p>вы дали 1усману снюс и он убил всех кроме тебя. вы выжили.🥳 </p>
+            </div>
+        `;
+        document.querySelector('main').innerHTML = end15;
+    }   
+    function showEnd16() {
+        let end16 = `
+            <div class="my-div">
+              <h3>#14</h3>  <p>вы просите 1усмана не убивать вас, но он напоминает вам о том, как вы шутили про его монобровь и сворачивает вам шею. вы умерли. </p>
+            </div>
+        `;       document.querySelector('main').innerHTML = end16;
+    }        
+     function showEnd17() {
+        let end17 = `
+            <div class="my-div">
+              <h3>#15</h3>  <p>вы заходите в железную дверь и видите огромную плантацию кокаина,вас замечают и делают рабом для выращивания конопли.вы стали рабом. </p>
+            </div>
+        `;        document.querySelector('main').innerHTML = end17;
+    }        
+</script>
+<script>const refreshBtn = document.querySelector('.refresh-btn');
+function refreshPage() {
+  location.reload();
+}
+refreshBtn.addEventListener('click', refreshPage);</script> <div class="btn-container"><h1>Концовки</h1>
+    <button class="square-btn" onclick="showPopup('#1    Яха убила вас из-за тетради')">1</button>
+    <button class="square-btn" onclick="showPopup('#2 Яха убила вас из-за того, что вы спали на ее уроке')">2</button>
+    <button class="square-btn" onclick="showPopup('#3 Вы умерли от стыда')">3</button>
+    <button class="square-btn" onclick="showPopup('#4 Яха убила вас из-за того, что вы рылись в ее вещях')">4</button>
+    <button class="square-btn" onclick="showPopup('#5 Яха убила вас из-за того, что вы пытались отобрать у нее телефон')">5</button>
+    <button class="square-btn" onclick="showPopup('#6 Рамази убила вас')">6</button>
+    <button class="square-btn" onclick="showPopup('#7 Вас убил Алхан')">7</button>
+    <button class="square-btn" onclick="showPopup('#8 1усман застрелил вас из дробавика')">8</button>
+    <button class="square-btn" onclick="showPopup('#9 1усман затрелил вас из снайперской винтовки')">9</button>
+    <button class="square-btn" onclick="showPopup('#10 Вы выжили благодаря снюсу')">10</button>
+    <button class="square-btn" onclick="showPopup('#11 Вы сдохли из-за того, что съели свой телефон')">11</button>
+    <button class="square-btn" onclick="showPopup('#12 Вы умерли в изоляторе')">12</button>
+    <button class="square-btn" onclick="showPopup('#13 Вас спасли')">13</button>
+    <button class="square-btn" onclick="showPopup('#14 1усман свернул вам шею')">14</button>
+    <button class="square-btn" onclick="showPopup('#15 Вы стали рабом')">15</button>
+  </div>
+
+  <div id="popup-container">
+    <div id="popup-text"></div>
+  </div>
+</body> </html>
